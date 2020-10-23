@@ -114,3 +114,4 @@ describe('User instance methods', function() {
     });
   });
 });
+
