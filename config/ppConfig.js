@@ -1,14 +1,14 @@
-const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
-const db = require('../models');
+const passport = require('passport')
+const LocalStrategy = require('passport-local').Strategy
+const db = require('../models')
 
 /*
  * Passport "serializes" objects to make them easy to store, converting the
  * user to an identifier (id)
  */
 passport.serializeUser((user, cb) => {
-  cb(null, user.id);
-});
+  cb(null, user.id)
+})
 
 /*
  * Passport "deserializes" objects by taking the user's serialization (id)
@@ -16,9 +16,9 @@ passport.serializeUser((user, cb) => {
  */
 passport.deserializeUser((id, cb) => {
   db.user.findByPk(id).then(user => {
-    cb(null, user);
-  }).catch(cb);
-});
+    cb(null, user)
+  }).catch(cb)
+})
 
 /*
  * This is Passport's strategy to provide local authentication. We provide the
@@ -48,12 +48,11 @@ passport.use(new LocalStrategy({
     where: { email }
   }).then(user => {
     if (!user || !user.validPassword(password)) {
-      cb(null, false);
+      cb(null, false)
     } else {
-      cb(null, user);
+      cb(null, user)
     }
-  }).catch(cb);
-}));
-
+  }).catch(cb)
+}))
 // export the Passport configuration from this module
-module.exports = passport;
+module.exports = passport

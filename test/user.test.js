@@ -1,11 +1,11 @@
-var expect = require('chai').expect;
-var db = require('../models');
+const expect = require('chai').expect
+const db = require('../models')
 
 before(function(done) {
   db.sequelize.sync({ force: true }).then(function() {
-    done();
-  });
-});
+    done()
+  })
+})
 
 describe('Creating a User', function() {
   it('should create successfully', function(done) {
@@ -29,8 +29,8 @@ describe('Creating a User', function() {
       done(newUser);
     }).catch(function(error) {
       done();
-    });
-  });
+    })
+  })
 
   it('should throw an error on invalid name', function(done) {
     db.user.create({
@@ -40,9 +40,9 @@ describe('Creating a User', function() {
     }).then(function(newUser) {
       done(newUser);
     }).catch(function(error) {
-      done();
-    });
-  });
+      done()
+    })
+  })
 
   it('should throw an error on invalid password', function(done) {
     db.user.create({
@@ -52,9 +52,9 @@ describe('Creating a User', function() {
     }).then(function(newUser) {
       done(newUser);
     }).catch(function(error) {
-      done();
-    });
-  });
+      done()
+    })
+  })
 
   it('should hash the password before save', function(done) {
     db.user.create({
@@ -65,13 +65,13 @@ describe('Creating a User', function() {
       if (newUser.password === 'password') {
         done(newUser);
       } else {
-        done();
+        done()
       }
     }).catch(function(error) {
-      done(error);
-    });
-  });
-});
+      done(error)
+    })
+  })
+})
 
 describe('User instance methods', function() {
   describe('validPassword', function() {
@@ -84,8 +84,8 @@ describe('User instance methods', function() {
         }
       }).catch(function(error) {
         done(error);
-      });
-    });
+      })
+    })
 
     it('should invalidate an incorrect password', function(done) {
       db.user.findOne().then(function(user) {
@@ -96,22 +96,22 @@ describe('User instance methods', function() {
         }
       }).catch(function(error) {
         done(error);
-      });
-    });
-  });
+      })
+    })
+  })
 
   describe('toJSON', function() {
     it('should return a user without a password field', function(done) {
       db.user.findOne().then(function(user) {
         if (user.toJSON().password === undefined) {
-          done();
+          done()
         } else {
-          done(user);
+          done(user)
         }
       }).catch(function(error) {
         done(error);
-      });
-    });
-  });
-});
+      })
+    })
+  })
+})
 
