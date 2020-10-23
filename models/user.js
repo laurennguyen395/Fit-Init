@@ -29,20 +29,20 @@ module.exports = (sequelize, DataTypes) => {
   };
 
   user.init({
-    email: {
-      type: DataTypes.STRING,
-      validate: {
-        isEmail: {
-          msg: 'Invalid email address'
-        }
-      }
-    },
     name: {
       type: DataTypes.STRING,
       validate: {
         len: {
           args: [1, 99],
           msg: 'Name must be between 1 and 99 characters'
+        }
+      }
+    },
+    email: {
+      type: DataTypes.STRING,
+      validate: {
+        isEmail: {
+          msg: 'Invalid email address'
         }
       }
     },
@@ -54,11 +54,48 @@ module.exports = (sequelize, DataTypes) => {
           msg: 'Password must be between 8 and 99 characters'
         }
       }
+    },
+    height: {
+      type: DataTypes.STRING,
+      validate: {
+        len: {
+          args: [1, 99],
+          msg: 'Please enter valid height'
+        }
+      }
+    },
+    weight: {
+      type: DataTypes.INTEGER,
+      validate: {
+        len: {
+          args: [1, 3],
+          msg: 'Please enter valid weight'
+        }
+      }
+    },
+    gender: {
+      type: DataTypes.STRING,
+      validate: {
+        len: {
+          args: [1],
+          msg: "M or F"
+        }
+      }
+    },
+    age : {
+      type: DataTypes.INTEGER,
+      validate: {
+        len: {
+          args: [1, 3],
+          msg: 'Please enter your age'
+        }
+      }
     }
-  }, {
-    sequelize,
-    modelName: 'user',
-  });
+  },
+    {
+      sequelize,
+      modelName: 'user',
+    });
 
   user.beforeCreate((pendingUser, options) => {
     if (pendingUser && pendingUser.password) {
