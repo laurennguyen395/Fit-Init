@@ -1,16 +1,16 @@
 {
   "development": {
-    "database": "express_auth_development",
+    "database": "fitinit",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "database": "express_auth_test",
+    "database": "fitinit",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "database": "express_auth_production",
+    "database": "fitinit",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }
