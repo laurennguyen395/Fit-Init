@@ -1,5 +1,5 @@
-var expect = require('chai').expect;
-var db = require('../models');
+const expect = require('chai').expect;
+const db = require('../models');
 
 before(function(done) {
   db.sequelize.sync({ force: true }).then(function() {
