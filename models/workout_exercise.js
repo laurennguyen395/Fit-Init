@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.workout_exercise.belongsToMany(models.workout)
     }
   };
   workout_exercise.init({
