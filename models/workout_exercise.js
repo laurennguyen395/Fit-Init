@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+<<<<<<< HEAD
+      models.workout_exercise.belongsToMany(models.workout)
+=======
+>>>>>>> submain
     }
   };
   workout_exercise.init({
