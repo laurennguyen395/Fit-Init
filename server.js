@@ -44,6 +44,7 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+// axios call to the API
 function makeGetRequest(path) { 
   axios.get(path).then( 
       (response) => { 
