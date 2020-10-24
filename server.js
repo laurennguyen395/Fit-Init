@@ -39,23 +39,47 @@ app.use((req, res, next) => {
   next();
 });
 
+
 // Homepage
 app.get('/', (req, res) => {
   res.render('index');
 });
 
+
+//API Key
 function makeGetRequest(path) { 
-  axios.get(path).then( 
-      (response) => { 
-          var result = response.data; 
-          console.log(result); 
-      }, 
-      (error) => { 
-          console.log(error); 
-      } 
-  ); 
-} 
-makeGetRequest('https://wger.de/api/v2/exercise/'); 
+    axios.get(path).then( 
+        (response) => { 
+            const exercise = response.data; 
+            // console.log(exercise); 
+            return exercise
+        }, 
+        (error) => { 
+            console.log(error); 
+        } 
+    ); 
+  }
+makeGetRequest('https://wger.de/api/v2/exercise/?limit=387');  
+
+
+//viewing an individual exercise
+app.get('/exercise', isLoggedIn, (req, res) => {
+  //get ids of exercise
+  // const exerciseUrl = makeGetRequest(); 
+  axios.get('https://wger.de/api/v2/exercise/?limit=387').then( (apiResponse) => {
+    console.log(apiResponse.data) 
+    res.render('exercise', { exercise: apiResponse.data })
+  })
+})
+
+app.get('/detail', isLoggedIn, (req, res) => {
+  //exercise details
+  axios.get('https://wger.de/api/v2/exercise/?limit=387').then( (apiResponse) => {
+    console.log(apiResponse.data) 
+    res.render('detail', { exercise: apiResponse.data })
+  })
+})
+
 
 // Individually chosen workouts
 app.get('/workout/:id', isLoggedIn, (req, res) => {
@@ -67,9 +91,6 @@ app.get('/profile', isLoggedIn, (req, res) => {
   res.render('profile');
 });
 
-app.get('/profile/:id', isLoggedIn, (req, res) => {
-  res.render('profile');
-});
 
 // Journal Entries
 app.get('/journal', isLoggedIn, (req, res) => {
