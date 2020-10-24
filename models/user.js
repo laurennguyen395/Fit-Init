@@ -1,4 +1,5 @@
 'use strict'
+const bcrypt = require('bcrypt')
 const {
   Model
 } = require('sequelize');
@@ -14,18 +15,36 @@ module.exports = (sequelize, DataTypes) => {
       models.user.hasMany(models.user_journal)
       models.user.hasMany(models.user_fave)
     }
-  };
-  user.init({
-    name: DataTypes.STRING,
-    email: DataTypes.STRING,
-    password: DataTypes.STRING,
-    height: DataTypes.STRING,
-    weight: DataTypes.STRING,
-    gender: DataTypes.STRING,
-    age: DataTypes.INTEGER
-  }, {
-    sequelize,
-    modelName: 'user',
-  })
-  return user
+    validPassword(passwordTyped) {
+      return bcrypt.compareSync(passwordTyped, this.password);
+    }
+
+    // remove the password before serializing
+    toJSON() {
+      let userData = this.get();
+      delete userData.password;
+      return userData;
+    }
+  }
+user.init({
+  name: DataTypes.STRING,
+  email: DataTypes.STRING,
+  password: DataTypes.STRING,
+  height: DataTypes.STRING,
+  weight: DataTypes.STRING,
+  gender: DataTypes.STRING,
+  age: DataTypes.INTEGER
+}, {
+  sequelize,
+  modelName: 'user',
+})
+user.beforeCreate((pendingUser, options) => {
+  if (pendingUser && pendingUser.password) {
+    // hash the password
+    let hash = bcrypt.hashSync(pendingUser.password, 12);
+    // store the hash as the user's password
+    pendingUser.password = hash;
+  }
+})
+return user
 }
