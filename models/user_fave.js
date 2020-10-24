@@ -11,11 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-<<<<<<< HEAD
-      models.fave.belongsTo(models.user)
-      models.fave.hasMany(models.workout)
-=======
->>>>>>> submain
+      models.user_fave.belongsTo(models.user)
+      models.user_fave.belongsTo(models.workout)
     }
   }
   user_fave.init({
