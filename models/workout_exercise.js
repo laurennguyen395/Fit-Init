@@ -11,11 +11,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      
     }
   };
   workout_exercise.init({
-    workoutFk: DataTypes.INTEGER,
-    exerciseFk: DataTypes.INTEGER
+    workoutId: DataTypes.INTEGER,
+    exerciseId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'workout_exercise',
