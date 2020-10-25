@@ -46,6 +46,7 @@ app.get('/', (req, res) => {
 });
 
 
+
 //API Key
 function makeGetRequest(path) { 
     axios.get(path).then( 
@@ -80,6 +81,19 @@ app.get('/detail', isLoggedIn, (req, res) => {
   })
 })
 
+// axios call to the API
+function makeGetRequest(path) { 
+  axios.get(path).then( 
+      (response) => { 
+          var result = response.data; 
+          console.log(result); 
+      }, 
+      (error) => { 
+          console.log(error); 
+      } 
+  ); 
+} 
+makeGetRequest('https://wger.de/api/v2/exercise/'); 
 
 // Individually chosen workouts
 app.get('/workout/:id', isLoggedIn, (req, res) => {
@@ -88,6 +102,12 @@ app.get('/workout/:id', isLoggedIn, (req, res) => {
 
 // Profile Page
 app.get('/profile', isLoggedIn, (req, res) => {
+  res.render('profile');
+});
+
+
+
+app.get('/profile/:id', isLoggedIn, (req, res) => {
   res.render('profile');
 });
 
