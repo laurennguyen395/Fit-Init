@@ -82,6 +82,15 @@ app.get('/detail', isLoggedIn, (req, res) => {
   })
 })
 
+app.get('/monday', isLoggedIn, (req, res) => {
+  //get ids of exercise
+  // const exerciseUrl = makeGetRequest(); 
+  axios.get('https://wger.de/api/v2/exercise/?limit=387').then( (apiResponse) => {
+    console.log(apiResponse.data) 
+    res.render('./weekdays/monday', { exercise: apiResponse.data })
+  })
+})
+
 // Home Workouts Page
 app.get('/workout' , isLoggedIn, (req, res) => {
   res.render('workout')

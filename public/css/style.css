@@ -27,7 +27,6 @@ body{
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  font-family: 'Roboto', sans-serif;
   height:100vh;
   width:100vw;
   padding:0;
@@ -84,11 +83,22 @@ div.card-body{
 }
 .card-link{
   color: grey;
-  margin: 2px 87px 7px 29px;
+  margin: 0px auto 8px auto;
   font-size: 22px;
+  text-align: center;
+
 }
 .card-body button.btn.btn-primary{
   margin-left: 26px;
+}
+button.btn.btn-dark{
+  background-color: grey;
+  border:white;
+  margin-left: 86px;
+  margin-bottom: 8px;
+  font-family: 'Cormorant', serif;
+  font-size: 18px;
+  padding: 5px;
 }
 button.btn.btn-primary{
   background-color:rgb(91, 183, 217) !important ;

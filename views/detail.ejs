@@ -2,7 +2,7 @@
 <% exercise.results.forEach(function(exercise) { %>
     
     <div class="well">
-        <% if(exercise.language === 2) { %> 
+        <% if((exercise.language === 2) && (exercise.category === 9)) { %> 
         <h2><%= exercise.name %></h2>
         <p> <%= exercise.description %> </p>
     <% } %> 

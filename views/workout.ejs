@@ -1,14 +1,25 @@
+<!-- MONDAY -->
 <div class="allWorkouts">
   <div class="cardMonday workoutCard" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">Monday</h5>
       <h6 class="card-subtitle mb-2 text-muted">Quads+Glutes+Hamstrings</h6>
       <p class="card-text"></p>
-      <a href="/workout/:id" class="card-link">START!</a>
+      <form action="/workout/:id" method="GET">
+        <input hidden type="text" name="name" >
+        <input hidden type="text" name="name" >
+        <button type="button" class="btn btn-dark">START!</button>
+      </form>
+      <form action="/faves" method="POST">
+        <input hidden type="text" name="name">
+        <input hidden type="text" name="name">
       <button class="btn btn-primary" type="submit">Add to Favorite Exercises</button>
+      </form>
     </div>
   </div>
 </div>
+
+<!-- TUESDAY -->
 <div class="allWorkouts">
   <div class="cardTuesday workoutCard" style="width: 18rem;">
     <div class="card-body">
@@ -20,6 +31,8 @@
     </div>
   </div>
 </div>
+
+
 <div class="allWorkouts">
   <div class="cardWednesday workoutCard" style="width: 18rem;">
     <div class="card-body">
@@ -31,6 +44,8 @@
     </div>
   </div>
 </div>
+
+
 <div class="allWorkouts">
   <div class="cardMonday workoutCard" style="width: 18rem;">
     <div class="card-body">
@@ -42,6 +57,8 @@
     </div>
   </div>
 </div>
+
+
 <div class="allWorkouts">
   <div class="cardMonday workoutCard" style="width: 18rem;">
     <div class="card-body">
@@ -53,6 +70,8 @@
     </div>
   </div>
 </div>
+
+
 <div class="allWorkouts">
   <div class="cardMonday workoutCard" style="width: 18rem;">
     <div class="card-body">
@@ -64,6 +83,8 @@
     </div>
   </div>
 </div>
+
+
 <div class="allWorkouts">
   <div class="cardMonday workoutCard" style="width: 18rem;">
     <div class="card-body">

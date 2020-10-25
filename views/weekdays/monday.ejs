@@ -1,0 +1,25 @@
+<h1>Monday</h1>
+<h3>Quads+Glutes+Hamstrings</h3>
+
+
+<form action="/monday" method="GET">
+    <% exercise.results.forEach(function(exercise){ %>
+    <ul>
+        <% if((exercise.language === 2) && (exercise.category === 9) && (exercise.id === 432 )){ %>
+        <li><%=exercise.name%> x 30s</li>
+        <% } %>
+        <% if((exercise.language === 2) && (exercise.category === 9) && (exercise.id ===  300 )){ %>
+        <li><%=exercise.name%> x 30s</li>
+        <% } %>
+        <% if((exercise.language === 2) && (exercise.category === 9) && (exercise.id ===  405 )){ %>
+        <li><%=exercise.name%> x 30s</li>
+        <% } %>
+        <% if((exercise.language === 2) && (exercise.category === 9) && (exercise.id === 116 )){ %>
+        <li><%=exercise.name%> x 30s</li>
+        <% } %>
+        <% if((exercise.language === 2) && (exercise.category === 9) && (exercise.id === 387 )){ %>
+        <li><%=exercise.name%> x 30s</li>
+        <% } %>
+    </ul>
+    <% }) %>
+</form>
