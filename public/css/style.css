@@ -6,15 +6,20 @@
   margin: 16px 0 16px 326px;
   padding: 0;
 }
-nav ul li {
-  text-decoration: none;
-  display: inline-block;
-}
-a{
+nav{
   display: flex;
   justify-content: flex-end;
+  justify-content: space-around;
+}
+nav ul li {
+  display: inline-block;
+  text-decoration: none;
+}
+a{
+  display: block;
   color:white;
-  margin: 0 8px 0 8px;
+  margin: 5px;
+  font-size: 16px;
 }
 body{
   background:url("https://i.imgur.com/VSZBmDl.png");
