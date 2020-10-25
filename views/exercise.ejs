@@ -1,0 +1,21 @@
+<h1>Exercises</h1>
+
+<% exercise.results.forEach(function(exercise) { %>
+    
+<div class="well">
+    <% if(exercise.language === 2) { %> 
+    <h2><%= exercise.name %></h2>
+    <form method="POST" action="/exercise-fave">
+        <input hidden type="text" name="name" value="<%= exercise.name %>">
+        <input hidden type="text" name="name" value="<%= exercise.id %>">
+        <button class="btn btn-primary" type="submit">Add to Favorite Exercises</button>
+    </form>
+    <form method="POST" action="/detail">
+        <input hidden type="text" name="name" value="<%= exercise.name %>">
+        <input hidden type="text" name="name" value="<%= exercise.id %>">
+        <button class="btn btn-detail" type="submit">Exercise Details</button>
+    </form>
+
+<% } %> 
+</div>
+<% }); %>
