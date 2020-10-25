@@ -63,6 +63,7 @@ function makeGetRequest(path) {
 makeGetRequest('https://wger.de/api/v2/exercise/?limit=387');  
 
 
+
 //viewing an individual exercise
 app.get('/exercise', isLoggedIn, (req, res) => {
   //get ids of exercise
@@ -81,19 +82,19 @@ app.get('/detail', isLoggedIn, (req, res) => {
   })
 })
 
-// axios call to the API
-function makeGetRequest(path) { 
-  axios.get(path).then( 
-      (response) => { 
-          var result = response.data; 
-          console.log(result); 
-      }, 
-      (error) => { 
-          console.log(error); 
-      } 
-  ); 
-} 
-makeGetRequest('https://wger.de/api/v2/exercise/'); 
+app.get('/monday', isLoggedIn, (req, res) => {
+  //get ids of exercise
+  // const exerciseUrl = makeGetRequest(); 
+  axios.get('https://wger.de/api/v2/exercise/?limit=387').then( (apiResponse) => {
+    console.log(apiResponse.data) 
+    res.render('./weekdays/monday', { exercise: apiResponse.data })
+  })
+})
+
+// Home Workouts Page
+app.get('/workout' , isLoggedIn, (req, res) => {
+  res.render('workout')
+})
 
 // Individually chosen workouts
 app.get('/workout/:id', isLoggedIn, (req, res) => {
