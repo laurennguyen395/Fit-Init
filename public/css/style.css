@@ -68,10 +68,11 @@ div.card-body{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
 }
 .card-title{
+  color: grey;
   text-align: center;
+  font-size: 28px;
 }
 .card-subtitle{
   text-align: center;
@@ -79,7 +80,14 @@ div.card-body{
 .card-link{
   color: grey;
   margin: 2px 87px 7px 29px;
-  font-size: 24px;
+  font-size: 22px;
+}
+.card-body button.btn.btn-primary{
+  margin-left: 26px;
+}
+button.btn.btn-primary{
+  background-color:rgb(91, 183, 217) !important ;
+  border: white;
 }
 
 @media(max-width:500px){
