@@ -21,11 +21,18 @@ function makeGetRequest(path) {
         (error) => {
             console.log(error);
         }
-    );
-}
-makeGetRequest(workoutUrl);
-
-
+        );
+    }
+    makeGetRequest(workoutUrl);
+    
+    
+    // Home Workouts Page
+    router.get('/workout', isLoggedIn, (req, res) => {
+        db.workout.findAll().then(workout => {
+            console.log(workout)
+            res.render('workout', {workout: workout})
+        }) 
+    })
 
 //viewing an individual exercise
 router.get('/exercise', isLoggedIn, (req, res) => {
@@ -103,13 +110,6 @@ router.get('/sunday', isLoggedIn, (req, res) => {
     })
 })
 
-// Home Workouts Page
-router.get('/workout', isLoggedIn, (req, res) => {
-    // Query all of the workouts in the workout table
-    // db.workout.findAll()
-    // set up where days of the week and 
-    res.render('workout') 
-})
 
 // Individually chosen workouts
 router.get('/workout/:id', isLoggedIn, (req, res) => {
@@ -130,6 +130,11 @@ router.get('/profile/:id', isLoggedIn, (req, res) => {
 
 // Journal Entries
 router.get('/journal', isLoggedIn, (req, res) => {
+    db.user.findOne().then(function(foundUser){
+        where: {
+            name: {foundUser.dataValues.name}
+        }
+    })
     res.render('journal')
 })
 
