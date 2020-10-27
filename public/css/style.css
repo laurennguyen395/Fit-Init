@@ -101,20 +101,19 @@ div.card-body{
 .card-body button.btn.btn-primary{
   margin-left: 26px;
 }
-button.btn.btn-dark{
-  background-color: grey;
-  border:white;
-  margin-left: 86px;
-  margin-bottom: 8px;
-  font-family: 'Cormorant', serif;
-  font-size: 18px;
-  padding: 5px;
-}
 button.btn.btn-primary{
   background-color:rgb(91, 183, 217) !important ;
   border: white;
+  margin-left: 86px;
+  margin-bottom: 8px;
 }
-
+button.btn.btn-primary.start{
+  background-color: rgb(91, 183, 217) !important;
+  margin-left: 80px;
+}
+button.btn.btn-primary.faves {
+  background-color: grey !important
+}
 @media(max-width:500px){
 
 }
