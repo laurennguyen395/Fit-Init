@@ -15,7 +15,7 @@
 
 <body>
   <header>
-    <nav>
+    <nav class= "navHeader">
       <ul class="signuplogin">
         <% if (!currentUser) { %>
         <li><a href="/auth/login">Login</a></li>
@@ -23,6 +23,7 @@
         <% } else { %>
         <li><a href="/auth/logout">Logout</a></li>
         <li><a href="/profile">Profile</a></li>
+        <li><a href="/journal">My Journal</a></li>
         <% } %>
       </ul>
     </nav>

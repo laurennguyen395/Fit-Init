@@ -1,98 +1,26 @@
-<!-- MONDAY -->
 <div class="allWorkouts">
-  <div class="cardMonday workoutCard" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">Monday</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Quads+Glutes+Hamstrings</h6>
-      <p class="card-text"></p>
-      <form action="/workout/:id" method="GET">
-        <input hidden type="text" name="name" >
-        <input hidden type="text" name="name" >
-        <button type="button" class="btn btn-dark">START!</button>
-      </form>
-      <form action="/faves" method="POST">
-        <input hidden type="text" name="name">
-        <input hidden type="text" name="name">
-      <button class="btn btn-primary" type="submit">Add to Favorite Exercises</button>
-      </form>
-    </div>
-  </div>
-</div>
-
-<!-- TUESDAY -->
-<div class="allWorkouts">
-  <div class="cardTuesday workoutCard" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">Tuesday</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Chest+Triceps</h6>
-      <p class="card-text"></p>
-      <a href="/workout/:id" class="card-link">START!</a>
-      <button class="btn btn-primary" type="submit">Add to Favorite Exercises</button>
-    </div>
-  </div>
-</div>
-
-
-<div class="allWorkouts">
-  <div class="cardWednesday workoutCard" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">Wednesday</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Abs</h6>
-      <p class="card-text"></p>
-      <a href="/workout/:id" class="card-link">START!</a>
-      <button class="btn btn-primary" type="submit">Add to Favorite Exercises</button>
-    </div>
-  </div>
-</div>
-
-
-<div class="allWorkouts">
-  <div class="cardMonday workoutCard" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">Thursday</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Back+Biceps</h6>
-      <p class="card-text"></p>
-      <a href="/workout/:id" class="card-link">START!</a>
-      <button class="btn btn-primary" type="submit">Add to Favorite Exercises</button>
-    </div>
-  </div>
-</div>
-
-
-<div class="allWorkouts">
-  <div class="cardMonday workoutCard" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">Friday</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Quads+Glutes+Hamstrings</h6>
-      <p class="card-text"></p>
-      <a href="/workout/:id" class="card-link">START!</a>
-      <button class="btn btn-primary" type="submit">Add to Favorite Exercises</button>
-    </div>
-  </div>
-</div>
-
-
-<div class="allWorkouts">
-  <div class="cardMonday workoutCard" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">Saturday</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Full body</h6>
-      <p class="card-text"></p>
-      <a href="/workout/:id" class="card-link">START!</a>
-      <button class="btn btn-primary" type="submit">Add to Favorite Exercises</button>
-    </div>
-  </div>
-</div>
-
-
-<div class="allWorkouts">
-  <div class="cardMonday workoutCard" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">Sunday</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Rest+Recovery</h6>
-      <p class="card-text"></p>
-      <a href="/workout/:id" class="card-link">START!</a>
-      <button class="btn btn-primary" type="submit">Add to Favorite Exercises</button>
-    </div>
-  </div>
-</div>
+  <%for (let i = 0; i < workout.length; i++) {%>
+    <%let d = new Date(workout[i].date)%>
+    <%let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']%>
+            <div class="cardMonday workoutCard" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title"><%=days[d.getDay()]%></h5>
+                    <h6 class="card-subtitle mb-2 text-muted"><%= workout[i].name %></h6>
+                    <p class="card-text"></p>
+                    <form action="/workout/:id" method="GET">
+                        <input hidden type="text" name="name">
+                        <input hidden type="text" name="name">
+                        <button type="button" class="btn btn-dark">START!</button>
+                    </form>
+                    <form action="/faves" method="POST">
+                        <input hidden type="text" name="name">
+                        <input hidden type="text" name="name">
+                        <button class="btn btn-primary" type="submit">Add to Favorite Exercises</button>
+                    </form>
+                </div>
+            </div>
+            <%}%>
+        </div>
+  
+  
+  

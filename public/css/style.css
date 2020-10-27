@@ -2,9 +2,18 @@
   margin: 0 auto;
   font-family: 'Cormorant', serif;
 }
+.journalForm{
+  max-width: 350px;
+}
+.journalHeader{
+  text-align: center;
+}
 .signuplogin{
   margin: 16px 0 16px 326px;
   padding: 0;
+}
+.navHeader{
+  background-color: rgba(73, 87, 107, 0.5)
 }
 nav{
   display: flex;
@@ -60,9 +69,10 @@ body{
   margin-top: 100px;
 }
 div.alert.alert-success{
-  background-color: rgb(73,87,107);
+  background-color: rgba(73, 87, 107, 0.5);
   color:white;
-  border: rgb(73,87,107);
+  border: rgb(73, 87, 107);
+  text-align: center;
 }
 div.card-body{
   background-color: white;
