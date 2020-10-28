@@ -12,13 +12,11 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       models.user_journal.belongsTo(models.user)
-      models.user_journal.belongsTo(models.workout)
     }
   };
   user_journal.init({
     content: DataTypes.TEXT,
     userId: DataTypes.INTEGER,
-    workoutId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'user_journal',

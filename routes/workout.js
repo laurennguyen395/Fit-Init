@@ -2,15 +2,17 @@ const layouts = require('express-ejs-layouts');
 const isLoggedIn = require('../middleware/isLoggedIn');
 const methodOverride = require('method-override')
 const axios = require('axios')
-const apiKey = '34e71e65fea4bd5480247027ff3d653d33f1961f'
 const express = require('express')
 const passport = require('../config/ppConfig')
 const db = require('../models')
+const sequelize = require('sequelize')
 const router = express.Router()
+const bodyParser = require("body-parser");
 const workoutUrl = 'https://wger.de/api/v2/exercise/?limit=387'
 
+router.use(methodOverride('_method'))
 
-//API Key
+//API Call
 function makeGetRequest(path) {
     axios.get(path).then(
         (response) => {
@@ -29,7 +31,6 @@ function makeGetRequest(path) {
     // Home Workouts Page
     router.get('/workout', isLoggedIn, (req, res) => {
         db.workout.findAll().then(workout => {
-            console.log(workout)
             res.render('workout', {workout: workout})
         }) 
     })
@@ -39,7 +40,6 @@ router.get('/exercise', isLoggedIn, (req, res) => {
     //get ids of exercise
     // const exerciseUrl = makeGetRequest(); 
     axios.get(workoutUrl).then((apiResponse) => {
-        console.log(apiResponse.data)
         res.render('exercise', { exercise: apiResponse.data })
     })
 })
@@ -47,65 +47,58 @@ router.get('/exercise', isLoggedIn, (req, res) => {
 router.get('/detail', isLoggedIn, (req, res) => {
     //exercise details
     axios.get(workoutUrl).then((apiResponse) => {
-        console.log(apiResponse.data)
         res.render('detail', { exercise: apiResponse.data })
     })
 })
 
 // Daily Workouts
-router.get('/monday', isLoggedIn, (req, res) => {
+router.get('/workout/monday', isLoggedIn, (req, res) => {
     //get ids of exercise
     // const exerciseUrl = makeGetRequest(); 
     axios.get(workoutUrl).then((apiResponse) => {
-        console.log(apiResponse.data)
         res.render('./weekdays/monday', { exercise: apiResponse.data })
     })
 })
-router.get('/tuesday', isLoggedIn, (req, res) => {
+router.get('/workout/tuesday', isLoggedIn, (req, res) => {
     //get ids of exercise
     // const exerciseUrl = makeGetRequest(); 
     axios.get(workoutUrl).then((apiResponse) => {
-        console.log(apiResponse.data)
         res.render('./weekdays/tuesday', { exercise: apiResponse.data })
     })
 })
-router.get('/wednesday', isLoggedIn, (req, res) => {
+router.get('/workout/wednesday', isLoggedIn, (req, res) => {
     //get ids of exercise
     // const exerciseUrl = makeGetRequest(); 
     axios.get(workoutUrl).then((apiResponse) => {
-        console.log(apiResponse.data)
         res.render('./weekdays/wednesday', { exercise: apiResponse.data })
     })
 })
-router.get('/thursday', isLoggedIn, (req, res) => {
+router.get('/workout/thursday', isLoggedIn, (req, res) => {
     //get ids of exercise
     // const exerciseUrl = makeGetRequest(); 
     axios.get(workoutUrl).then((apiResponse) => {
-        console.log(apiResponse.data)
         res.render('./weekdays/thursday', { exercise: apiResponse.data })
     })
 })
-router.get('/friday', isLoggedIn, (req, res) => {
+router.get('/workout/friday', isLoggedIn, (req, res) => {
     //get ids of exercise
     // const exerciseUrl = makeGetRequest(); 
     axios.get(workoutUrl).then((apiResponse) => {
-        console.log(apiResponse.data)
         res.render('./weekdays/friday', { exercise: apiResponse.data })
     })
 })
-router.get('/saturday', isLoggedIn, (req, res) => {
+router.get('/workout/saturday', isLoggedIn, (req, res) => {
     //get ids of exercise
     // const exerciseUrl = makeGetRequest(); 
     axios.get(workoutUrl).then((apiResponse) => {
-        console.log(apiResponse.data)
+
         res.render('./weekdays/saturday', { exercise: apiResponse.data })
     })
 })
-router.get('/sunday', isLoggedIn, (req, res) => {
+router.get('/workout/sunday', isLoggedIn, (req, res) => {
     //get ids of exercise
     // const exerciseUrl = makeGetRequest(); 
     axios.get(workoutUrl).then((apiResponse) => {
-        console.log(apiResponse.data)
         res.render('./weekdays/sunday', { exercise: apiResponse.data })
     })
 })
@@ -117,52 +110,36 @@ router.get('/workout/:id', isLoggedIn, (req, res) => {
 })
 
 // Profile Page
-router.get('/profile', isLoggedIn, (req, res) => {
-    res.render('profile');
-});
-
-
-
 router.get('/profile/:id', isLoggedIn, (req, res) => {
-    res.render('profile');
-});
+        res.render('profile' , {user: req.user})
+    })
 
 
 // Journal Entries
 router.get('/journal', isLoggedIn, (req, res) => {
-    db.user.findOne().then(function(foundUser){
-        where: {
-            name: {foundUser.dataValues.name}
-        }
+    db.user_journal.findAll().then(function(item) {
+        console.log(item)
+        res.render('journal', {user: item})
     })
-    res.render('journal')
 })
 
-router.post('/journal', isLoggedIn, (req, res) => {
-    res.render('journal')
-})
-
-router.delete('/journal', isLoggedIn, (req, res) => {
-    res.send('we want to delete something here')
-    // maybe: db.user_journal.destroy({
-    // where: {
-    // userId = '${user}
-    //   }
-    // })
-})
-
-router.get('/db', (req, res) => {
-    db.workout.findOrCreate({
-        where: {
-            date: '11/8/2020',
-            name: 'Rest+Recovery'
-        }
-    }).then(function (createdWorkout) {
-        console.log(createdWorkout.dataValues)
+router.get('/myjournal', (req, res) => {
+    db.user_journal.findAll().then(allEntries => {
+        console.log(allEntries)
+        res.render('entries', {entries: allEntries})
     })
-    res.send('create')
 })
 
+router.post('/journal', (req, res) => {
+    console.log(req.body, "******")
+    db.user_journal.create({
+            content: req.body.content,
+            userId: req.user.id
+    }).then(function (createdContent) {
+        console.log(createdContent)
+        console.log(createdContent.dataValues)
+    })
+    res.redirect('/myjournal')
+})
 
-
-module.exports = router;
+module.exports = router; 

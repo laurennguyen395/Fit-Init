@@ -6,10 +6,10 @@ const flash = require('connect-flash');
 const passport = require('./config/ppConfig');
 const isLoggedIn = require('./middleware/isLoggedIn');
 const axios = require('axios')
-const methodOverride = require('method-override')
-const apiKey = '34e71e65fea4bd5480247027ff3d653d33f1961f'
-const app = express();
 const db = require('./models')
+const methodOverride = require('method-override')
+const bodyParser = require("body-parser")
+const app = express();
 
 app.set('view engine', 'ejs');
 
@@ -30,6 +30,7 @@ app.use(passport.session());
 
 // use method override to handle PUT and DELETE requests elegantly
 app.use(methodOverride('_method'))
+app.use(bodyParser.urlencoded({extended: false}))
 
 
 app.use((req, res, next) => {
