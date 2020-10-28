@@ -110,12 +110,13 @@ router.get('/profile', isLoggedIn, (req, res) => {
         res.render('profile', {user: req.user})
     })
 })
-router.get('/profile/update', (req, res) => {
+
+router.get('/update', (req, res) => {
     res.render('update')
 })
 
-router.post('/profile/update', isLoggedIn, (req, res) => {
-    console.log(req.user.dataValues)
+router.post('/update', isLoggedIn, (req, res) => {
+    // console.log(req.user.dataValues)
     db.user.update({
         name: req.user.name,
         email: req.user.email,
@@ -123,9 +124,12 @@ router.post('/profile/update', isLoggedIn, (req, res) => {
         weight: req.user.weight,
         age: req.user.age
     }).then(function (user) {
-        res.render('update', {user: user})
+        console.log('updated user:', user)
+        res.redirect('/profile', {user: user})
     })
 })
+
+
 
 
 
@@ -139,7 +143,6 @@ router.get('/journal', isLoggedIn, (req, res) => {
 
 router.get('/myjournal', (req, res) => {
     db.user_journal.findAll().then(allEntries => {
-        console.log(allEntries)
         res.render('entries', { entries: allEntries })
     })
 })

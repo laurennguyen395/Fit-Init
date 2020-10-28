@@ -1,4 +1,6 @@
 <h1>My Journal</h1>
-<ul>
-<li><%= entries[0].content %></li>
-</ul>
+<%for (let i = 0; i < entries.length; i ++) {%>
+    <ul>
+    <li><%= entries[i].content %></li>
+    </ul>
+<%}%>

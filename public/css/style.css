@@ -108,8 +108,8 @@ div.card-body{
 button.btn.btn-primary{
   background-color:rgb(91, 183, 217) !important ;
   border: white;
-  margin-left: 86px;
-  margin-bottom: 8px;
+  margin-left: 10px;
+  margin-bottom: 10px;
 }
 button.btn.btn-primary.start{
   background-color: rgb(91, 183, 217) !important;
@@ -123,6 +123,9 @@ button.btn.btn-primary.journal{
 }
 button.btn.btn-primary.done{
   margin-left: 10px;
+}
+button.btn.btn-primary.ready{
+  margin: 0 auto;
 }
 .update{
   width: 350px
