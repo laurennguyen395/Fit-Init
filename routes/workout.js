@@ -8,6 +8,7 @@ const db = require('../models')
 const sequelize = require('sequelize')
 const router = express.Router()
 const bodyParser = require("body-parser");
+const e = require('express');
 const workoutUrl = 'https://wger.de/api/v2/exercise/?limit=387'
 
 router.use(methodOverride('_method'))
@@ -23,17 +24,17 @@ function makeGetRequest(path) {
         (error) => {
             console.log(error);
         }
-        );
-    }
-    makeGetRequest(workoutUrl);
-    
-    
-    // Home Workouts Page
-    router.get('/workout', isLoggedIn, (req, res) => {
-        db.workout.findAll().then(workout => {
-            res.render('workout', {workout: workout})
-        }) 
+    );
+}
+makeGetRequest(workoutUrl);
+
+
+// Home Workouts Page
+router.get('/workout', isLoggedIn, (req, res) => {
+    db.workout.findAll().then(workout => {
+        res.render('workout', { workout: workout })
     })
+})
 
 //viewing an individual exercise
 router.get('/exercise', isLoggedIn, (req, res) => {
@@ -103,38 +104,52 @@ router.get('/workout/sunday', isLoggedIn, (req, res) => {
     })
 })
 
-
-// Individually chosen workouts
-router.get('/workout/:id', isLoggedIn, (req, res) => {
-    res.render('workout')
+// Profile Page
+router.get('/profile', isLoggedIn, (req, res) => {
+    db.user.findAll().then(function (user) {
+        res.render('profile', {user: req.user})
+    })
+})
+router.get('/profile/update', (req, res) => {
+    res.render('update')
 })
 
-// Profile Page
-router.get('/profile/:id', isLoggedIn, (req, res) => {
-        res.render('profile' , {user: req.user})
+router.post('/profile/update', isLoggedIn, (req, res) => {
+    console.log(req.user.dataValues)
+    db.user.update({
+        name: req.user.name,
+        email: req.user.email,
+        height: req.user.height,
+        weight: req.user.weight,
+        age: req.user.age
+    }).then(function (user) {
+        res.render('update', {user: user})
     })
+})
+
 
 
 // Journal Entries
 router.get('/journal', isLoggedIn, (req, res) => {
-    db.user_journal.findAll().then(function(item) {
+    db.user_journal.findAll().then(function (item) {
         console.log(item)
-        res.render('journal', {user: item})
+        res.render('journal', { user: item })
     })
 })
 
 router.get('/myjournal', (req, res) => {
     db.user_journal.findAll().then(allEntries => {
         console.log(allEntries)
-        res.render('entries', {entries: allEntries})
+        res.render('entries', { entries: allEntries })
     })
 })
 
 router.post('/journal', (req, res) => {
     console.log(req.body, "******")
     db.user_journal.create({
-            content: req.body.content,
-            userId: req.user.id
+        content: req.body.content,
+        userId: req.user.id,
+        date: req.body.date
     }).then(function (createdContent) {
         console.log(createdContent)
         console.log(createdContent.dataValues)
