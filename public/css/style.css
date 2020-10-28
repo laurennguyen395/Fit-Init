@@ -2,8 +2,15 @@
   margin: 0 auto;
   font-family: 'Cormorant', serif;
 }
-.journalForm{
+h1{
+  margin-left: 20px;
+}
+.journal{
   max-width: 350px;
+  margin: 0 auto;
+}
+textarea#content.form-control{
+  margin-bottom: 8px;
 }
 .journalHeader{
   text-align: center;
@@ -104,8 +111,8 @@ div.card-body{
 button.btn.btn-primary{
   background-color:rgb(91, 183, 217) !important ;
   border: white;
-  margin-left: 86px;
-  margin-bottom: 8px;
+  margin-left: 10px;
+  margin-bottom: 10px;
 }
 button.btn.btn-primary.start{
   background-color: rgb(91, 183, 217) !important;
@@ -113,6 +120,41 @@ button.btn.btn-primary.start{
 }
 button.btn.btn-primary.faves {
   background-color: grey !important
+}
+button.btn.btn-primary.journal{
+  margin-left: 0;
+}
+button.btn.btn-primary.done{
+  margin-left: 10px;
+}
+button.btn.btn-primary.ready{
+  margin: 0 auto;
+}
+button.btn.btn-primary.profile{
+  margin: 10px auto;
+}
+
+.update{
+  width: 350px
+}
+#user-info{
+  color: black;
+}
+.user-name{
+  font-size: 30px;
+  margin: 0 auto;
+}
+input.form-control{
+  margin: 10px
+}
+.journal-text{
+  color: black;
+}
+#journal-card{
+  margin: 10px
+}
+div.card.profile{
+  margin-top: 50px;
 }
 @media(max-width:500px){
 
