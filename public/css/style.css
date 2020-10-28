@@ -2,6 +2,9 @@
   margin: 0 auto;
   font-family: 'Cormorant', serif;
 }
+h1{
+  margin-left: 20px;
+}
 .journal{
   max-width: 350px;
   margin: 0 auto;
@@ -127,11 +130,31 @@ button.btn.btn-primary.done{
 button.btn.btn-primary.ready{
   margin: 0 auto;
 }
+button.btn.btn-primary.profile{
+  margin: 10px auto;
+}
+
 .update{
   width: 350px
 }
+#user-info{
+  color: black;
+}
+.user-name{
+  font-size: 30px;
+  margin: 0 auto;
+}
 input.form-control{
   margin: 10px
+}
+.journal-text{
+  color: black;
+}
+#journal-card{
+  margin: 10px
+}
+div.card.profile{
+  margin-top: 50px;
 }
 @media(max-width:500px){
 

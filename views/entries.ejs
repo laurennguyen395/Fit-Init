@@ -1,6 +1,9 @@
 <h1>My Journal</h1>
 <%for (let i = 0; i < entries.length; i ++) {%>
-    <ul>
-    <li><%= entries[i].content %></li>
-    </ul>
+    <div class="card" id="journal-card">
+        <div class="card-body">
+            <p class="journal-text"><%= entries[i].content %></p>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary delete">Delete</button>
 <%}%>

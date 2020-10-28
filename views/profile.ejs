@@ -1,12 +1,25 @@
-<h2>Profile</h2>
+<h1>Profile</h1>
 
 <form action="/update" method="GET">
-<h3><%=user.name%></h3>
-<h3><%=user.age%></h3>
-<h3><%=user.height%></h3>
-<h3><%=user.weight%></h3>
-<button type="submit" class="btn btn-primary">Update</button>
+<div class="card profile" style="width: 18rem;">
+    <div class="card-header">
+        <p class="user-name"id="user-info"><%=user.name%></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"id="user-info"> Age: <%=user.age%></li>
+      <li class="list-group-item"id="user-info"> Height: <%=user.height%></li>
+      <li class="list-group-item"id="user-info"> Weight: <%=user.weight%></li>
+    </ul>
+    <button type="submit" class="btn btn-primary profile">Update</button>
+</div>
 </form>
+
+
+
+
+
+
+
 
 
 

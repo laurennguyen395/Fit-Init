@@ -12,6 +12,7 @@ const e = require('express');
 const workoutUrl = 'https://wger.de/api/v2/exercise/?limit=387'
 
 router.use(methodOverride('_method'))
+router.use(bodyParser.urlencoded({ extended: false }))
 
 //API Call
 function makeGetRequest(path) {
@@ -28,11 +29,31 @@ function makeGetRequest(path) {
 }
 makeGetRequest(workoutUrl);
 
+// Profile Page
+router.get('/profile', isLoggedIn, (req, res) => {
+    db.user.findOne().then(function (user) {
+        res.render('profile', { user: req.user })
+    })
+})
 
 // Home Workouts Page
 router.get('/workout', isLoggedIn, (req, res) => {
     db.workout.findAll().then(workout => {
         res.render('workout', { workout: workout })
+    })
+
+    // Journal Entries
+    router.get('/journal', isLoggedIn, (req, res) => {
+        db.user_journal.findAll().then(function (item) {
+            console.log(item)
+            res.render('journal', { user: item })
+        })
+    })
+
+    router.get('/myjournal', isLoggedIn, (req, res) => {
+        db.user_journal.findAll().then(allEntries => {
+            res.render('entries', { entries: allEntries })
+        })
     })
 })
 
@@ -104,60 +125,52 @@ router.get('/workout/sunday', isLoggedIn, (req, res) => {
     })
 })
 
-// Profile Page
-router.get('/profile', isLoggedIn, (req, res) => {
-    db.user.findAll().then(function (user) {
-        res.render('profile', {user: req.user})
-    })
-})
 
-router.get('/update', (req, res) => {
+router.get('/update', isLoggedIn, (req, res) => {
     res.render('update')
 })
 
 router.post('/update', isLoggedIn, (req, res) => {
     // console.log(req.user.dataValues)
     db.user.update({
-        name: req.user.name,
-        email: req.user.email,
-        height: req.user.height,
-        weight: req.user.weight,
-        age: req.user.age
-    }).then(function (user) {
-        console.log('updated user:', user)
-        res.redirect('/profile', {user: user})
+        name: req.user,
+        email: req.user,
+        height: req.user,
+        weight: req.user,
+        age: req.user,
+        gender: req.user
     })
+    .then(function (result, err) {
+        console.log(result)
+        result.item
+        result.created
+    }).catch(function(err){})
+    res.render('/profile', {user: result})
 })
 
-
-
-
-
-// Journal Entries
-router.get('/journal', isLoggedIn, (req, res) => {
-    db.user_journal.findAll().then(function (item) {
-        console.log(item)
-        res.render('journal', { user: item })
-    })
-})
-
-router.get('/myjournal', (req, res) => {
-    db.user_journal.findAll().then(allEntries => {
-        res.render('entries', { entries: allEntries })
-    })
-})
-
-router.post('/journal', (req, res) => {
+// Post new journal entry
+router.post('/journal', isLoggedIn, (req, res) => {
     console.log(req.body, "******")
     db.user_journal.create({
         content: req.body.content,
-        userId: req.user.id,
-        date: req.body.date
+        userId: req.user.id
     }).then(function (createdContent) {
         console.log(createdContent)
         console.log(createdContent.dataValues)
     })
     res.redirect('/myjournal')
+})
+
+// Delete journal entry
+router.delete('/myjournal/:id', isLoggedIn, (req, res) => {
+    db.user_journal.destroy({
+        where: {
+            id: req.user_journal.id
+        }
+    }).then(function (deletedEntry) {
+        console.log('deleted')
+        res.redirect('/myjournal')
+    })
 })
 
 module.exports = router; 
