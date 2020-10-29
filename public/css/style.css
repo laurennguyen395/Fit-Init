@@ -154,6 +154,8 @@ div.card-header{
 }
 li.list-group-item{
   color: black;
+  margin: 10px 0;
+  text-align: center;
 }
 @media(max-width:500px){
 

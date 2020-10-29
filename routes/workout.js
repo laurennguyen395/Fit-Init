@@ -176,5 +176,4 @@ router.delete('/myjournal/:id', isLoggedIn, (req, res) => {
 })
 
 
-
 module.exports = router; 
