@@ -4,6 +4,9 @@
             <h1>Wednesday</h1> 
                 Abs
         </div>
+        <div class="card-header">
+            Complete this sequence x 4
+        </div>
         <ul class="list-group list-group-flush">
             <% exercise.results.forEach(function(exercise){ %>
         <% if((exercise.language === 2) && (exercise.category === 10) && (exercise.id === 91 )){ %>
@@ -21,7 +24,8 @@
         <% if((exercise.language === 2) && (exercise.category === 10) && (exercise.id === 310 )){ %>
         <li class="list-group-item"><%=exercise.name%> x 30s</li>
         <% } %>
+        <% }) %>
+        <li class="list-group-item"> 1 Minute Recovery</li>
     </ul>
-    <% }) %>
     </div>
 </form>
