@@ -15,27 +15,14 @@ textarea#content.form-control{
 .journalHeader{
   text-align: center;
 }
-.signuplogin{
-  margin: 16px 0 16px 326px;
-  padding: 0;
-}
-.navHeader{
-  display: flex;
+.justify-content-end{
   background-color: rgba(73, 87, 107, 0.5)
 }
-
-nav ul li {
-  /* display: inline-block; */
-  text-decoration: none;
-  text-align: center;
-}
 a{
-  display: block;
   color:white;
   margin: 5px;
   font-size: 16px;
 }
-
 body{
   background:url("https://i.imgur.com/VSZBmDl.png");
   background-size: cover;
