@@ -20,16 +20,14 @@ textarea#content.form-control{
   padding: 0;
 }
 .navHeader{
+  display: flex;
   background-color: rgba(73, 87, 107, 0.5)
 }
-nav{
-  display: flex;
-  justify-content: flex-end;
-  justify-content: space-around;
-}
+
 nav ul li {
-  display: inline-block;
+  /* display: inline-block; */
   text-decoration: none;
+  text-align: center;
 }
 a{
   display: block;
@@ -37,6 +35,7 @@ a{
   margin: 5px;
   font-size: 16px;
 }
+
 body{
   background:url("https://i.imgur.com/VSZBmDl.png");
   background-size: cover;
@@ -74,6 +73,10 @@ body{
   margin: 0 auto;
   color: white;
   margin-top: 100px;
+}
+div.workout-card {
+  margin-top: 50px;
+  padding-bottom: 15px;
 }
 div.alert.alert-success{
   background-color: rgba(73, 87, 107, 0.5);
@@ -131,17 +134,17 @@ button.btn.btn-primary.ready{
   margin: 0 auto;
 }
 button.btn.btn-primary.profile{
-  margin: 0 auto;
+  margin-left: 103px;
 }
 .update{
   width: 350px
 }
-#user-info{
+.user-info{
   color: black;
+  text-align: center;
 }
 .user-name{
   font-size: 30px;
-  margin: 0 auto;
 }
 input.form-control{
   margin: 10px
@@ -159,7 +162,8 @@ div.card-header{
   color: black;
   font-size: 25px;
   padding: 0;
-  margin: 10px
+  margin: 10px;
+  text-align: center;
 }
 li.list-group-item{
   color: black;

@@ -175,16 +175,6 @@ router.delete('/myjournal/:id', isLoggedIn, (req, res) => {
     })
 })
 
-router.get('/db', (req, res) => {
-    db.workout.findOrCreate({
-        where: {
-            date: '11/8/2020',
-            name: 'Rest+Recovery'
-        }
-    }).then(function (createdWorkout) {
-        console.log(createdWorkout)
-    })
-	res.send('created')
-})
+
 
 module.exports = router; 

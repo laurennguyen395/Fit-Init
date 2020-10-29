@@ -14,18 +14,19 @@
 </head>
 
 <body>
+
   <header>
     <nav class= "navHeader">
-      <ul class="signuplogin">
+      <ul class="signuplogin nav justify-content-end">
         <% if (!currentUser) { %>
-        <li><a href="/auth/login">Login</a></li>
-        <li><a href="/auth/signup">Signup</a></li>
+        <li class="nav-item"><a class="nav-link" href="/auth/login">Login</a></li>
+        <li class="nav-item"><a class="nav-link" href="/auth/signup">Signup</a></li>
         <% } else { %>
-          <li><a href="/workout">Workouts</a></li>
-          <li><a href="/journal">Journal Entry</a></li>
-          <li><a href="/myjournal">My Journal</a></li>
-          <li><a href="/profile">Profile</a></li>
-          <li><a href="/auth/logout">Logout</a></li>
+          <li class="nav-item"><a class="nav-link" href="/workout">Workouts</a></li>
+          <li class="nav-item"><a class="nav-link" href="/journal">Journal Entry</a></li>
+          <li class="nav-item"><a class="nav-link" href="/myjournal">My Journal</a></li>
+          <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li>
+          <li class="nav-item"><a class="nav-link" href="/auth/logout">Logout</a></li>
         <% } %>
       </ul>
     </nav>
