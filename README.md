@@ -37,7 +37,7 @@ any time.
 11. When the user has completed their daily workout they will want the option to log out of their
 account.
 
-##WireFrame
+## WireFrame
 ![wireframe 1](https://i.imgur.com/mHkIwhT.png)
 
 ## Screen Grabs
