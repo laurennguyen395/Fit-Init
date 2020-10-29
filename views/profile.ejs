@@ -1,6 +1,6 @@
 <h1>Profile</h1>
 
-<form action="/update" method="GET">
+
 <div class="card profile" style="width: 18rem;">
     <div class="card-header">
         <p class="user-name"id="user-info"><%=user.name%></p>
@@ -10,17 +10,8 @@
       <li class="list-group-item"id="user-info"> Height: <%=user.height%></li>
       <li class="list-group-item"id="user-info"> Weight: <%=user.weight%></li>
     </ul>
-    <button type="submit" class="btn btn-primary profile">Update</button>
+    <a href="/update"><button type="button" class="btn btn-primary profile">Update</button></a>
 </div>
-</form>
-
-
-
-
-
-
-
-
 
 
 
