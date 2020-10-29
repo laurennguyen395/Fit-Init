@@ -1,25 +1,27 @@
-<h1>Wednesday</h1>
-<h3>Abs</h3>
-
-
 <form action="/wednesday" method="GET">
-    <% exercise.results.forEach(function(exercise){ %>
-    <ul>
+    <div class="card workout-card" style="width: 22rem;">
+        <div class="card-header">
+            <h1>Wednesday</h1> 
+                Abs
+        </div>
+        <ul class="list-group list-group-flush">
+            <% exercise.results.forEach(function(exercise){ %>
         <% if((exercise.language === 2) && (exercise.category === 10) && (exercise.id === 91 )){ %>
-        <li><%=exercise.name%> x 30s</li>
+        <li class="list-group-item"><%=exercise.name%> x 30s</li>
         <% } %>
         <% if((exercise.language === 2) && (exercise.category === 10) && (exercise.id ===  303 )){ %>
-        <li><%=exercise.name%> x 30s</li>
+            <li class="list-group-item"><%=exercise.name%> x 30s</li>
         <% } %>
         <% if((exercise.language === 2) && (exercise.category === 10) && (exercise.id ===  166 )){ %>
-        <li><%=exercise.name%> x 30s</li>
+        <li class="list-group-item"><%=exercise.name%> x 30s</li>
         <% } %>
         <% if((exercise.language === 2) && (exercise.category === 10) && (exercise.id === 383 )){ %>
-        <li><%=exercise.name%> x 30s</li>
+        <li class="list-group-item"><%=exercise.name%> x 30s</li>
         <% } %>
         <% if((exercise.language === 2) && (exercise.category === 10) && (exercise.id === 310 )){ %>
-        <li><%=exercise.name%> x 30s</li>
+        <li class="list-group-item"><%=exercise.name%> x 30s</li>
         <% } %>
     </ul>
     <% }) %>
+    </div>
 </form>
