@@ -1,7 +1,7 @@
 <form action="/saturday" method="GET">
     <div class="card workout-card" style="width: 22rem;">
         <div class="card-header">
-            <h1>Saturday</h1> 
+            <h1>Saturday</h1>
             Full Body
         </div>
         <div class="card-header">
@@ -9,24 +9,23 @@
         </div>
         <ul class="list-group list-group-flush">
             <% exercise.results.forEach(function(exercise){ %>
-                <% if((exercise.language === 2) && (exercise.id === 318 )){ %>
-        <li class="list-group-item"><%=exercise.name%> x 30s</li>
-        <% } %>
-        <% if((exercise.language === 2) && (exercise.id === 249 )){ %>
-        <li class="list-group-item"><%=exercise.name%> x 30s</li>
-        <% } %>
-        <% if((exercise.language === 2) && (exercise.id === 794 )){ %>
-        <li class="list-group-item"><%=exercise.name%> x 30s</li>
-        <% } %>
-        <% if((exercise.language === 2) && (exercise.id === 325 )){ %>
-        <li class="list-group-item"><%=exercise.name%> x 30s</li>
-        <% } %>
-        <% if((exercise.language === 2) && (exercise.id === 795 )){ %>
-        <li class="list-group-item"><%=exercise.name%> x 30s</li>
-        <% } %>
-        <% }) %>
-        <li class="list-group-item"> 1 Minute Recovery</li>
-    </ul>
+            <% if((exercise.language === 2) && (exercise.id === 318 )){ %>
+            <li class="list-group-item"><%=exercise.name%> x 30s</li>
+            <% } %>
+            <% if((exercise.language === 2) && (exercise.id === 249 )){ %>
+            <li class="list-group-item"><%=exercise.name%> x 30s</li>
+            <% } %>
+            <% if((exercise.language === 2) && (exercise.id === 794 )){ %>
+            <li class="list-group-item"><%=exercise.name%> x 30s</li>
+            <% } %>
+            <% if((exercise.language === 2) && (exercise.id === 325 )){ %>
+            <li class="list-group-item"><%=exercise.name%> x 30s</li>
+            <% } %>
+            <% if((exercise.language === 2) && (exercise.id === 795 )){ %>
+            <li class="list-group-item"><%=exercise.name%> x 30s</li>
+            <% } %>
+            <% }) %>
+            <li class="list-group-item"> 1 Minute Recovery</li>
+        </ul>
     </div>
 </form>
-

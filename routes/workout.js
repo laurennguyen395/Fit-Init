@@ -19,7 +19,6 @@ function makeGetRequest(path) {
     axios.get(path).then(
         (response) => {
             const exercise = response.data;
-            // console.log(exercise); 
             return exercise
         },
         (error) => {
@@ -45,7 +44,6 @@ router.get('/workout', isLoggedIn, (req, res) => {
     // Journal Entries
     router.get('/journal', isLoggedIn, (req, res) => {
         db.user_journal.findAll().then(function (item) {
-            console.log(item)
             res.render('journal', { user: item })
         })
     })
@@ -60,7 +58,6 @@ router.get('/workout', isLoggedIn, (req, res) => {
 //viewing an individual exercise
 router.get('/exercise', isLoggedIn, (req, res) => {
     //get ids of exercise
-    // const exerciseUrl = makeGetRequest(); 
     axios.get(workoutUrl).then((apiResponse) => {
         res.render('exercise', { exercise: apiResponse.data })
     })
@@ -76,42 +73,36 @@ router.get('/detail', isLoggedIn, (req, res) => {
 // Daily Workouts
 router.get('/workout/monday', isLoggedIn, (req, res) => {
     //get ids of exercise
-    // const exerciseUrl = makeGetRequest(); 
     axios.get(workoutUrl).then((apiResponse) => {
         res.render('./weekdays/monday', { exercise: apiResponse.data })
     })
 })
 router.get('/workout/tuesday', isLoggedIn, (req, res) => {
     //get ids of exercise
-    // const exerciseUrl = makeGetRequest(); 
     axios.get(workoutUrl).then((apiResponse) => {
         res.render('./weekdays/tuesday', { exercise: apiResponse.data })
     })
 })
 router.get('/workout/wednesday', isLoggedIn, (req, res) => {
     //get ids of exercise
-    // const exerciseUrl = makeGetRequest(); 
     axios.get(workoutUrl).then((apiResponse) => {
         res.render('./weekdays/wednesday', { exercise: apiResponse.data })
     })
 })
 router.get('/workout/thursday', isLoggedIn, (req, res) => {
     //get ids of exercise
-    // const exerciseUrl = makeGetRequest(); 
     axios.get(workoutUrl).then((apiResponse) => {
         res.render('./weekdays/thursday', { exercise: apiResponse.data })
     })
 })
 router.get('/workout/friday', isLoggedIn, (req, res) => {
     //get ids of exercise
-    // const exerciseUrl = makeGetRequest(); 
     axios.get(workoutUrl).then((apiResponse) => {
         res.render('./weekdays/friday', { exercise: apiResponse.data })
     })
 })
 router.get('/workout/saturday', isLoggedIn, (req, res) => {
     //get ids of exercise
-    // const exerciseUrl = makeGetRequest(); 
     axios.get(workoutUrl).then((apiResponse) => {
 
         res.render('./weekdays/saturday', { exercise: apiResponse.data })
@@ -119,7 +110,6 @@ router.get('/workout/saturday', isLoggedIn, (req, res) => {
 })
 router.get('/workout/sunday', isLoggedIn, (req, res) => {
     //get ids of exercise
-    // const exerciseUrl = makeGetRequest(); 
     axios.get(workoutUrl).then((apiResponse) => {
         res.render('./weekdays/sunday', { exercise: apiResponse.data })
     })
@@ -131,7 +121,6 @@ router.get('/update', isLoggedIn, (req, res) => {
 })
 
 router.put('/update', isLoggedIn, (req, res) => {
-    // console.log(req.user.dataValues)
     db.user.update({
         name: req.body.name,
         email: req.body.email,
@@ -145,20 +134,16 @@ router.put('/update', isLoggedIn, (req, res) => {
         }
     })
     .then(function (results) {
-        console.log(results)
         res.redirect('/profile')
     }).catch(function(err){})
 })
 
 // Post new journal entry
 router.post('/journal', isLoggedIn, (req, res) => {
-    console.log(req.body, "******")
     db.user_journal.create({
         content: req.body.content,
         userId: req.user.id
     }).then(function (createdContent) {
-        console.log(createdContent)
-        console.log(createdContent.dataValues)
     })
     res.redirect('/myjournal')
 })
@@ -170,7 +155,6 @@ router.delete('/myjournal/:id', isLoggedIn, (req, res) => {
             id: req.params.id
         }
     }).then(function (deletedEntry) {
-        console.log('deleted')
         res.redirect('/myjournal')
     })
 })

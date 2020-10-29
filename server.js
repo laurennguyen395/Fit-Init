@@ -30,7 +30,7 @@ app.use(passport.session());
 
 // use method override to handle PUT and DELETE requests elegantly
 app.use(methodOverride('_method'))
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({ extended: false }))
 
 
 app.use((req, res, next) => {
