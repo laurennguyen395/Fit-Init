@@ -127,25 +127,27 @@ router.get('/workout/sunday', isLoggedIn, (req, res) => {
 
 
 router.get('/update', isLoggedIn, (req, res) => {
-    res.render('update')
+    res.render('update', {user: res.locals.currentUser})
 })
 
-router.post('/update', isLoggedIn, (req, res) => {
+router.put('/update', isLoggedIn, (req, res) => {
     // console.log(req.user.dataValues)
     db.user.update({
-        name: req.user,
-        email: req.user,
-        height: req.user,
-        weight: req.user,
-        age: req.user,
-        gender: req.user
+        name: req.body.name,
+        email: req.body.email,
+        gender: req.body.gender,
+        height: req.body.height,
+        weight: req.body.weight,
+        age: req.body.age
+    }, {
+        where: {
+            id: req.user.id
+        }
     })
-    .then(function (result, err) {
-        console.log(result)
-        result.item
-        result.created
+    .then(function (results) {
+        console.log(results)
+        res.redirect('/profile')
     }).catch(function(err){})
-    res.render('/profile', {user: result})
 })
 
 // Post new journal entry
