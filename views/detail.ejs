@@ -1,10 +1,10 @@
 <h1>Exercise Details</h1>
 <% exercise.results.forEach(function(exercise) { %>
-    
-    <div class="well">
-        <% if((exercise.language === 2) && (exercise.category === 9 || exercise.category === 14 )) { %> 
-        <h2><%= exercise.name %></h2>
-        <p> <%= exercise.description %> </p>
-    <% } %> 
-    </div>
-    <% }); %>
+
+<div class="well">
+    <% if((exercise.language === 2) && (exercise.category === 9 || exercise.category === 14 )) { %>
+    <h2><%= exercise.name %></h2>
+    <p> <%= exercise.description %> </p>
+    <% } %>
+</div>
+<% }); %>
