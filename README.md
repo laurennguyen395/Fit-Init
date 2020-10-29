@@ -4,13 +4,13 @@ Fit Devs has created the perfect app for you to reach your fitness goals and fit
 ## Our App
 ******INSERT IMAGES HERE LAUREN & KELSEY*******
 
-##Technologies
--JavaScript
--Node.js
--Express
--Sequelize
--Bootstrap
--Axios
+## Technologies
+* -JavaScript
+* -Node.js
+* -Express
+* -Sequelize
+* -Bootstrap
+* -Axios
 
 ## Our Approach
 Allowing users to not have to think about or plan out their workouts will motivate them more to just get up and do it. They will be able to log their progress and how they are feeling in their own personal journals and favorite workouts to do again later. 
@@ -39,3 +39,20 @@ account.
 
 ##WireFrame
 ![wireframe 1](https://i.imgur.com/mHkIwhT.png)
+
+## Screen Grabs
+![Landing Page](https://i.imgur.com/sLA8OKm.png)
+![Weekly Calander](https://i.imgur.com/XdMAR3n.png)
+![Daily Workout](https://i.imgur.com/rNIMeDy.png)
+![Journal Entry](https://i.imgur.com/DK8M2Ee.png)
+
+## Credits
+GA Staff
+
+## Future Development
+* Allow user the capability to favortite workouts in order to go back to them later.
+* Display descriptions for each individual exercise.
+* Seed exercise into database for more options.
+* Allow user to create their own unique workouts.
+* Implement COVID API to allow usesrs to check stats in their area.
+* Manage equipment vs non equipment workouts to provide both at home and gym workouts.
