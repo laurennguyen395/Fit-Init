@@ -1,8 +1,11 @@
 # Fit Init
 Fit Devs has created the perfect app for you to reach your fitness goals and fit in those jeans you've always wanted to.
 
-## Our App
-******INSERT IMAGES HERE LAUREN & KELSEY*******
+## Screen Grabs
+![Landing Page](https://i.imgur.com/sLA8OKm.png)
+![Weekly Calander](https://i.imgur.com/XdMAR3n.png)
+![Daily Workout](https://i.imgur.com/rNIMeDy.png)
+![Journal Entry](https://i.imgur.com/DK8M2Ee.png)
 
 ## Technologies
 * JavaScript
@@ -40,11 +43,6 @@ account.
 ## WireFrame
 ![wireframe 1](https://i.imgur.com/mHkIwhT.png)
 
-## Screen Grabs
-![Landing Page](https://i.imgur.com/sLA8OKm.png)
-![Weekly Calander](https://i.imgur.com/XdMAR3n.png)
-![Daily Workout](https://i.imgur.com/rNIMeDy.png)
-![Journal Entry](https://i.imgur.com/DK8M2Ee.png)
 
 ## Credits
 * GA Staff
