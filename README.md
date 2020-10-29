@@ -5,12 +5,12 @@ Fit Devs has created the perfect app for you to reach your fitness goals and fit
 ******INSERT IMAGES HERE LAUREN & KELSEY*******
 
 ## Technologies
-* -JavaScript
-* -Node.js
-* -Express
-* -Sequelize
-* -Bootstrap
-* -Axios
+* JavaScript
+* Node.js
+* Express
+* Sequelize
+* Bootstrap
+* Axios
 
 ## Our Approach
 Allowing users to not have to think about or plan out their workouts will motivate them more to just get up and do it. They will be able to log their progress and how they are feeling in their own personal journals and favorite workouts to do again later. 
@@ -47,7 +47,7 @@ account.
 ![Journal Entry](https://i.imgur.com/DK8M2Ee.png)
 
 ## Credits
-GA Staff
+* GA Staff
 
 ## Future Development
 * Allow user the capability to favortite workouts in order to go back to them later.
