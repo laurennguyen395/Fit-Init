@@ -5,5 +5,7 @@
             <p class="journal-text"><%= entries[i].content %></p>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary delete">Delete</button>
-<%}%>
+    <form action=<%=`/myjournal/${entries[i].id}?_method=DELETE`%> method="POST">
+        <button type="submit" class="btn btn-primary delete">Delete</button>
+    </form>
+    <%}%>

@@ -167,7 +167,7 @@ router.post('/journal', isLoggedIn, (req, res) => {
 router.delete('/myjournal/:id', isLoggedIn, (req, res) => {
     db.user_journal.destroy({
         where: {
-            id: req.user_journal.id
+            id: req.params.id
         }
     }).then(function (deletedEntry) {
         console.log('deleted')
