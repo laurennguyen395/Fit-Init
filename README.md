@@ -1,7 +1,6 @@
 # Fit Init
 Fit Devs has created the perfect app for you to reach your fitness goals and fit in those jeans you've always wanted to.
 
-## Screen Grabs
 ![Landing Page](https://i.imgur.com/sLA8OKm.png)
 ![Weekly Calander](https://i.imgur.com/XdMAR3n.png)
 ![Daily Workout](https://i.imgur.com/rNIMeDy.png)
