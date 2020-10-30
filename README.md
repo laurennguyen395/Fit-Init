@@ -64,20 +64,6 @@ account.
             </div>
             <%}%>
                 </div>
-                
-                
-                                <h1>My Journal</h1>
-                                <%for (let i = 0; i < entries.length; i ++) {%>
-                                    <div class="card" id="journal-card">
-                                        <div class="card-body">
-                                            <p class="journal-text"><%= entries[i].content %></p>
-                                        </div>
-                                    </div>
-                                    <form action=<%=`/myjournal/${entries[i].id}?_method=DELETE`%> method="POST">
-                                        <button type="submit" class="btn btn-primary delete">Delete</button>
-                                    </form>
-                                    <%}%>
-
 ## Credits
 * GA Staff
 
