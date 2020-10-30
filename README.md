@@ -51,5 +51,6 @@ account.
 * Display descriptions for each individual exercise.
 * Seed exercise into database for more options.
 * Allow user to create their own unique workouts.
+* After workout is complete, add a complete button which will add workout to the "archives"
 * Implement COVID API to allow usesrs to check stats in their area.
 * Manage equipment vs non equipment workouts to provide both at home and gym workouts.
