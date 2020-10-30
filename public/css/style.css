@@ -1,9 +1,162 @@
-nav ul li {
-  text-decoration: none;
-  display: inline-block;
-  margin-right: .3em;
+*{
+  margin: 0 auto;
+  font-family: 'Cormorant', serif;
 }
+h1{
+  margin-left: 20px;
+}
+.journal{
+  max-width: 350px;
+  margin: 0 auto;
+}
+textarea#content.form-control{
+  margin-bottom: 8px;
+}
+.journalHeader{
+  text-align: center;
+}
+.justify-content-end{
+  background-color: rgba(73, 87, 107, 0.5)
+}
+a{
+  color:white;
+  margin: 5px;
+  font-size: 16px;
+}
+body{
+  background:url("https://i.imgur.com/VSZBmDl.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height:100vh;
+  width:100vw;
+  padding:0;
+  color: white;
+    }
+.landing{
+  text-align: center;
+  color: white;
+  text-align: center;
+  color: white;
+  max-width: 300px;
+}
+.welcome{
+  margin-top: 50px;
+}
+.introP{
+  margin-top: 50px;
+}
+.login{
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  color: white;
+  margin-top: 100px;
+}
+.signup{
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  color: white;
+  margin-top: 100px;
+}
+div.workout-card {
+  margin-top: 50px;
+  padding-bottom: 15px;
+}
+div.alert.alert-success{
+  background-color: rgba(73, 87, 107, 0.5);
+  color:white;
+  border: rgb(73, 87, 107);
+  text-align: center;
+}
+div.card-body{
+  background-color: white;
+  margin: 5px;
+}
+.allWorkouts{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-title{
+  color: grey;
+  text-align: center;
+  font-size: 28px;
+}
+.card-subtitle{
+  text-align: center;
+}
+.card-link{
+  color: grey;
+  margin: 0px auto 8px auto;
+  font-size: 22px;
+  text-align: center;
 
-h1 {
-  color: chartreuse;
+}
+.card-body button.btn.btn-primary{
+  margin-left: 26px;
+}
+button.btn.btn-primary{
+  background-color:rgb(91, 183, 217) !important ;
+  border: white;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+button.btn.btn-primary.start{
+  background-color: rgb(91, 183, 217) !important;
+  margin-left: 80px;
+}
+button.btn.btn-primary.faves {
+  background-color: grey !important
+}
+button.btn.btn-primary.journal{
+  margin-left: 0;
+}
+button.btn.btn-primary.done{
+  margin-left: 10px;
+}
+button.btn.btn-primary.ready{
+  margin: 0 auto;
+}
+button.btn.btn-primary.profile{
+  margin-left: 103px;
+}
+.update{
+  width: 350px
+}
+.user-info{
+  color: black;
+  text-align: center;
+}
+.user-name{
+  font-size: 30px;
+}
+input.form-control{
+  margin: 10px
+}
+.journal-text{
+  color: black;
+}
+#journal-card{
+  margin: 10px
+}
+div.card.profile{
+  margin-top: 50px;
+}
+div.card-header{
+  color: black;
+  font-size: 25px;
+  padding: 0;
+  margin: 10px;
+  text-align: center;
+}
+li.list-group-item{
+  color: black;
+  margin: 10px 0;
+  text-align: center;
+}
+@media(max-width:500px){
+
 }

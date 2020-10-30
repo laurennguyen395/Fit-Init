@@ -5,6 +5,10 @@ const session = require('express-session')
 const flash = require('connect-flash');
 const passport = require('./config/ppConfig');
 const isLoggedIn = require('./middleware/isLoggedIn');
+const axios = require('axios')
+const db = require('./models')
+const methodOverride = require('method-override')
+const bodyParser = require("body-parser")
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -24,6 +28,10 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
+// use method override to handle PUT and DELETE requests elegantly
+app.use(methodOverride('_method'))
+app.use(bodyParser.urlencoded({ extended: false }))
+
 
 app.use((req, res, next) => {
   // before every route, attach the flash messages and current user to res.locals
@@ -32,16 +40,15 @@ app.use((req, res, next) => {
   next();
 });
 
+
+// Homepage
 app.get('/', (req, res) => {
   res.render('index');
 });
 
-app.get('/profile', isLoggedIn, (req, res) => {
-  res.render('profile');
-});
-
 app.use('/auth', require('./routes/auth'));
+app.use('/', require('./routes/workout'))
 
-var server = app.listen(process.env.PORT || 3000, ()=> console.log(`🎧You're listening to the smooth sounds of port ${process.env.PORT || 3000}🎧`));
+var server = app.listen(process.env.PORT || 3000, () => console.log(`🎧You're listening to the smooth sounds of port ${process.env.PORT || 3000}🎧`));
 
 module.exports = server;

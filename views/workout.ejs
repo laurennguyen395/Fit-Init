@@ -1,0 +1,21 @@
+<div class="allWorkouts">
+    <%for (let i = 0; i < workout.length; i++) {%>
+    <%let d = new Date(workout[i].date)%>
+    <%let days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']%>
+    <div class="cardMonday workoutCard" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title"><%=days[d.getDay()]%></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= workout[i].name %></h6>
+            <p class="card-text"></p>
+            <form action="/workout/<%=days[d.getDay()]%>" method="GET">
+                <input hidden type="text" name="<%days[d.getDay()]%>" value="<%days[d.getDay()]%>">
+                <button class="btn btn-primary start" type="submit">START!</button>
+            </form>
+            <form action="/faves" method="POST">
+                <input hidden type="text" name="name">
+                <button class="btn btn-primary faves" type="submit">Add to Favorite Exercises</button>
+            </form>
+        </div>
+    </div>
+    <%}%>
+        </div> 

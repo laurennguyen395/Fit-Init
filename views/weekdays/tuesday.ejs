@@ -1,0 +1,31 @@
+<form action="/tuesday" method="GET">
+    <div class="card workout-card" style="width: 22rem;">
+        <div class="card-header">
+            <h1>Tuesday</h1>
+            Chest+Triceps
+        </div>
+        <div class="card-header">
+            Complete this sequence x 4
+        </div>
+        <ul class="list-group list-group-flush">
+            <% exercise.results.forEach(function(exercise){ %>
+            <% if((exercise.language === 2) && (exercise.category === 8 || exercise.category === 11) && (exercise.id === 162 )){ %>
+            <li class="list-group-item"><%=exercise.name%> x 30s</li>
+            <% } %>
+            <% if((exercise.language === 2) && (exercise.category === 8 || exercise.category === 11) && (exercise.id === 195 )){ %>
+            <li class="list-group-item"><%=exercise.name%> x 30s</li>
+            <% } %>
+            <% if((exercise.language === 2) && (exercise.category === 8 || exercise.category === 11) && (exercise.id === 85 )){ %>
+            <li class="list-group-item"><%=exercise.name%> x 30s</li>
+            <% } %>
+            <% if((exercise.language === 2) && (exercise.category === 8 || exercise.category === 11) && (exercise.id === 145 )){ %>
+            <li class="list-group-item"><%=exercise.name%> x 30s</li>
+            <% } %>
+            <% if((exercise.language === 2) && (exercise.category === 8 || exercise.category === 11) && (exercise.id === 163 )){ %>
+            <li class="list-group-item"><%=exercise.name%> x 30s</li>
+            <% } %>
+            <% }) %>
+            <li class="list-group-item"> 1 Minute Recovery</li>
+        </ul>
+    </div>
+</form>
